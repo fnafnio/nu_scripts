@@ -139,7 +139,7 @@ def "nu-complete git mergable sources" [] {
   {
     options: {
         case_sensitive: false,
-        completion_algorithm: prefix,
+        completion_algorithm: fuzzy,
         sort: false,
     },
     completions: $branches
@@ -152,7 +152,7 @@ def "nu-complete git switch" [] {
   {
     options: {
         case_sensitive: false,
-        completion_algorithm: prefix,
+        completion_algorithm: fuzzy,
         sort: false,
     },
     completions: $branches
@@ -188,7 +188,7 @@ def "nu-complete git checkout" [context: string, position?:int] {
   {
     options: {
         case_sensitive: false,
-        completion_algorithm: prefix,
+        completion_algorithm: fuzzy,
         sort: false,
     },
     completions: [...$branches, ...$files, ...$commits]
