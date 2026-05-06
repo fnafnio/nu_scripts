@@ -124,7 +124,7 @@ export def detected [] {
 export def main [
   --help (-h) # Help/Usage message
   --print (-p) # Print filename
-  --url (-u) # Use a URL
+  --url (-u): string # Use a URL
   --inline (-i) # Inline image (only for iTerm; ignored for Kitty)
   filename # The filename to show
 ] {
