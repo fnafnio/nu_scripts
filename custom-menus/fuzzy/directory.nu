@@ -10,6 +10,7 @@
             | input list --fuzzy
                 $'Please choose a (ansi magenta)directory(ansi reset) to (ansi cyan_underline)insert(ansi reset):'
             | default ''
+            | try { path relative-to (pwd) } catch { '' }
         )"
     }
 }
