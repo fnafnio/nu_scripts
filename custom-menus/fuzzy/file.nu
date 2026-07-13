@@ -9,6 +9,7 @@
             glob -D **/*
             | input list --fuzzy
                 $'Please choose a (ansi magenta)file(ansi reset) to (ansi cyan_underline)insert(ansi reset):'
+            | default ''
         )"
     }
 }
