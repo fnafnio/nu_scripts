@@ -126,24 +126,33 @@ def "nu-complete zellij layouts" [] {
 #]
 
 # Send actions to a specific session
-export extern "zellij action" [
+export def "zellij action" [
   command: string@"nu-complete zellij action"
   --help(-h) # Print help information
-]
+] {
+  ^zellij action $command
+  ^zellij action switch-mode locked
+}
 
 # Renames the focused tab
-export extern "zellij action rename-tab" [
+export def "zellij action rename-tab" [
   name: string # Name for the tab
-]
+] {
+  ^zellij action rename-tab $name
+  ^zellij action switch-mode locked
+}
 
 # Create a new tab, optionally with a specified tab layout and name
-export extern "zellij action new-tab" [
+export def "zellij action new-tab" [
   --cwd(-c): path # Change the working directory of the new tab
   --help(-h) # Print help information
   --layout(-l): string@"nu-complete zellij layouts" # Layout to use for the new tab
   --layout-dir: path # Default folder to look for layouts
   --name(-n): string # Name for the tab
-]
+] {
+  ^zellij action new-tab ...(if $cwd != null { [--cwd $cwd] } else { [] }) ...(if $layout != null { [--layout $layout] } else { [] }) ...(if $layout_dir != null { [--layout-dir $layout_dir] } else { [] }) ...(if $name != null { [--name $name] } else { [] })
+  ^zellij action switch-mode locked
+}
 
 # Attach to a session
 export extern "zellij attach" [

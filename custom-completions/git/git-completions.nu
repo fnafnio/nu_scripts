@@ -959,6 +959,7 @@ export extern "git clone" [
 
 # Restores files in working tree or index to previous versions
 export extern "git restore" [
+  ...file: string@"nu-complete git add"               # file to add
   --help(-h)                                    # Display the help message for this command
   --source(-s)                                  # Restore the working tree files with the content from the given tree
   --patch(-p)                                   # Interactively choose hunks to restore
@@ -979,7 +980,7 @@ export extern "git restore" [
   --no-overlay                                  # Remove files that don't exist when restoring from tree with --source (default)
   --pathspec-from-file: string                  # Read pathspec from file
   --pathspec-file-nul                           # Separate pathspec elements with NUL character when reading from file
-  ...pathspecs: string@"nu-complete git files"  # Target pathspecs to restore
+  # ...pathspecs: string@"nu-complete git files"  # Target pathspecs to restore
 ]
 
 # Print lines matching a pattern
