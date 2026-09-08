@@ -678,10 +678,24 @@ export extern "git remote set-url" [
 export extern "git diff" [
   rev1_or_file?: string@"nu-complete git files-or-refs"
   rev2?: string@"nu-complete git refs"
-  --cached                                             # show staged changes
-  --name-only                                          # only show names of changed files
-  --name-status                                        # show changed files and kind of change
-  --no-color                                           # disable color output
+  -z                # output diff-raw with lines terminated with NUL.
+  -p                # output patch format.
+  -u                # synonym for -p.
+  --patch-with-raw  # output both a patch and the diff-raw format.
+  --stat            # show diffstat instead of patch.
+  --numstat         # show numeric diffstat instead of patch.
+  --patch-with-stat # output a patch and prepend its diffstat.
+  --name-only       # show only names of changed files.
+  --name-status     # show names and status of changed files.
+  --full-index      # show full object name on index lines.
+  -R                # swap input file pairs.
+  -B                # detect complete rewrites.
+  -M                # detect renames.
+  -C                # detect copies.
+  --find-copies-harder # try unchanged files as candidate for copy detection.
+  --pickaxe-all # show all files diff when -S is used and hit is found.
+  --text(-a)  #  treat all files as text.
+
 ]
 
 # Commit changes
